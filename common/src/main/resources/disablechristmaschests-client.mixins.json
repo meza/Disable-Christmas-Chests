@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "gg.meza.client.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "MixinDisableChristmas"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

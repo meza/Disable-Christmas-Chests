@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[45,)"
+#issueTrackerURL = ""
+license = "GPL-3.0"
+
+[[mods]]
+modId = "disablechristmaschests"
+version = "${version}"
+displayName = "Disable Christmas Chests"
+authors = "Meza"
+description = '''
+Turn off the Christmas chests for good.
+'''
+logoFile = "assets/disablechristmaschests/nochest.png"
+
+[[dependencies.disablechristmaschests]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.disablechristmaschests]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"

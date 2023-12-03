@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "disablechristmaschests",
+  "version": "${version}",
+  "name": "Disable Christmas Chests",
+  "description": "Turn off the Christmas chests for good.",
+  "authors": [
+    "meza"
+  ],
+  "contact": {
+    "homepage": "https://github.com/meza/Disable-Christmas-Chests",
+    "sources": "https://github.com/meza/Disable-Christmas-Chests"
+  },
+  "license": "Insert License Here",
+  "icon": "assets/disablechristmaschests/nochest.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gg.meza.fabric.DisableChristmasChestsModFabric"
+    ]
+  },
+  "mixins": [
+    "disablechristmaschests-client.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1"
+  }
+}
