@@ -34,13 +34,13 @@
         "assets": [
           {
             "path": "forge/build/libs/!(*-@(dev|sources|shadow)).jar",
-            "name": "SoundsBeGone-forge-${nextRelease.gitTag}.jar",
-            "label": "SoundsBeGone-forge-${nextRelease.gitTag}.jar"
+            "name": "DisableChristmasChests-forge-${nextRelease.gitTag}.jar",
+            "label": "DisableChristmasChests-forge-${nextRelease.gitTag}.jar"
           },
           {
             "path": "fabric/build/libs/!(*-@(dev|sources|shadow)).jar",
-            "name": "SoundsBeGone-fabric-${nextRelease.gitTag}.jar",
-            "label": "SoundsBeGone-fabric-${nextRelease.gitTag}.jar"
+            "name": "DisableChristmasChests-fabric-${nextRelease.gitTag}.jar",
+            "label": "DisableChristmasChests-fabric-${nextRelease.gitTag}.jar"
           }
         ]
       }
