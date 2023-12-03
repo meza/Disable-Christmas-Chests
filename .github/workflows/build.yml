@@ -76,7 +76,6 @@ jobs:
         id: get-next-version
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
 
       - name: "ℹ️ Needs Release?"
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }}
@@ -86,7 +85,6 @@ jobs:
         if: ${{ runner.os == 'Linux' && matrix.java == '17' && (steps.get-next-version.outputs.new-release-published == 'true')  }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
         run: npx semantic-release
 
       - name: "🕵️‍♂️ Collect jars"
