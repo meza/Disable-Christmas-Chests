@@ -1,5 +1,6 @@
 package gg.meza.client.mixin;
 
+import gg.meza.DisableChristmasChestsMod;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -18,7 +19,9 @@ public class MixinDisableChristmas<T extends BlockEntity & LidOpenable> {
 
     @Inject(method = "render(Lnet/minecraft/block/entity/BlockEntity;FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;II)V", at = @At("HEAD"))
     private void render(T entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, CallbackInfo ci) {
-        this.christmas = false;
+        if (!DisableChristmasChestsMod.allowChristmas) {
+            this.christmas = false;
+        }
     }
 
 }
