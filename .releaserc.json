@@ -1,12 +1,12 @@
 {
   "branches": [
-    "MC1.20.2",
+    "MC1.20.4",
     {
-      "name": "MC1.20.2-beta",
+      "name": "MC1.20.4-beta",
       "prerelease": true
     }
   ],
-  "tagFormat": "v${version}-MC1.20.2",
+  "tagFormat": "v${version}-MC1.20.4",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
@@ -24,7 +24,6 @@
     [
       "@semantic-release/changelog",
       {
-        "changelogTitle": "# Changelog",
         "changelogFile": "CHANGELOG.md"
       }
     ],
