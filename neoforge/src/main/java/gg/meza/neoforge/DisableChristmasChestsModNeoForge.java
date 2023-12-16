@@ -1,15 +1,15 @@
-package gg.meza.forge;
+package gg.meza.neoforge;
 
 import gg.meza.DisableChristmasChestsMod;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 
 @Mod(DisableChristmasChestsMod.MOD_ID)
-public class DisableChristmasChestsModForge {
-    public DisableChristmasChestsModForge() {
+public class DisableChristmasChestsModNeoForge {
+    public DisableChristmasChestsModNeoForge() {
         DisableChristmasChestsMod.init();
     }
 

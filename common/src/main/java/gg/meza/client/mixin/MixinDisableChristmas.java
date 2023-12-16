@@ -22,6 +22,7 @@ public class MixinDisableChristmas<T extends BlockEntity & LidOpenable> {
         if (!DisableChristmasChestsMod.allowChristmas) {
             this.christmas = false;
         }
+        //this.christmas = DisableChristmasChestsMod.allowChristmas;
     }
 
 }

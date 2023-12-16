@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[49,)"
+loaderVersion = "[1,)"
 #issueTrackerURL = ""
 license = "GPL-3.0"
 
@@ -14,9 +14,9 @@ Turn off the Christmas chests for good.
 logoFile = "assets/disablechristmaschests/nochest.png"
 
 [[dependencies.disablechristmaschests]]
-modId = "forge"
+modId = "neoforge"
 mandatory = true
-versionRange = "[49,)"
+versionRange = "[20.4.29-beta,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -26,3 +26,6 @@ mandatory = true
 versionRange = "[1.20.4,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[mixins]]
+config = "disablechristmaschests-client.mixins.json"
