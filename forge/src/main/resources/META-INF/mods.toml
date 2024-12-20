@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[48,)"
+loaderVersion = "[54,)"
 #issueTrackerURL = ""
 license = "GPL-3.0"
 
@@ -16,13 +16,13 @@ logoFile = "assets/disablechristmaschests/nochest.png"
 [[dependencies.disablechristmaschests]]
 modId = "forge"
 mandatory = true
-versionRange = "[48.0.49,)"
+versionRange = "[54.0.7,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.disablechristmaschests]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.21,)"
+versionRange = "[1.21.4,)"
 ordering = "NONE"
 side = "BOTH"
