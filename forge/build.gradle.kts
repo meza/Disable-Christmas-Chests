@@ -52,12 +52,13 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = rootProject.file("src/main/resources/disablechristmaschests.accesswidener")
     decompilers {
         get("vineflower").apply { // Adds names to lambdas - useful for mixins
             options.put("mark-corresponding-synthetics", "1")
         }
     }
+
+    accessWidenerPath = rootProject.file("src/main/resources/disablechristmaschests.accesswidener")
 
     forge.convertAccessWideners = true
     forge.mixinConfigs(
@@ -72,7 +73,6 @@ loom {
 }
 
 java {
-    withSourcesJar()
     val java = if (stonecutter.eval(minecraftVersion, ">=1.20.5"))
         JavaVersion.VERSION_21 else JavaVersion.VERSION_17
     targetCompatibility = java
@@ -91,7 +91,7 @@ tasks.remapJar {
 }
 
 tasks.shadowJar {
-    configurations = listOf(shadowBundle)
+    configurations = listOf(shadowBundle, commonBundle)
     archiveClassifier = "dev-shadow"
     exclude("fabric.mod.json", "architectury.common.json")
 }

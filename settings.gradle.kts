@@ -16,8 +16,8 @@ plugins {
 
 stonecutter {
     centralScript = "build.gradle.kts"
+    kotlinController = true
     create(rootProject) {
-        kotlinController = true
         versions("1.21.4")
         vcsVersion = "1.21.4"
         branch("fabric")

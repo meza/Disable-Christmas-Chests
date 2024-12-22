@@ -41,11 +41,13 @@ dependencies {
     mappings("net.fabricmc:yarn:${common.mod.prop("yarn_mappings")}:v2")
     modImplementation("net.fabricmc:fabric-loader:${common.mod.prop("loader_version")}")
     modApi("net.fabricmc.fabric-api:fabric-api:${common.mod.prop("fabric_version")}")
+
     commonBundle(project(common.path, "namedElements")) { isTransitive = false }
     shadowBundle(project(common.path, "transformProductionFabric")) { isTransitive = false }
 }
 
 loom {
+
     accessWidenerPath = rootProject.file("src/main/resources/disablechristmaschests.accesswidener")
 
     decompilers {
@@ -62,7 +64,6 @@ loom {
 }
 
 java {
-    withSourcesJar()
     val java = if (stonecutter.eval(minecraftVersion, ">=1.20.5"))
         JavaVersion.VERSION_21 else JavaVersion.VERSION_17
     targetCompatibility = java
@@ -70,7 +71,7 @@ java {
 }
 
 tasks.shadowJar {
-    configurations = listOf(shadowBundle)
+    configurations = listOf(shadowBundle, commonBundle)
     archiveClassifier = "dev-shadow"
 }
 

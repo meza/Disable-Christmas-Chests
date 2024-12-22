@@ -1,12 +1,11 @@
 plugins {
     id("dev.architectury.loom")
     id("architectury-plugin")
-    id("com.github.johnrengelman.shadow")
 }
 
 val minecraftVersion = stonecutter.current.version
 
-version = "${mod.version}+${minecraftVersion}"
+version = "${mod.version}+mc${minecraftVersion}"
 base {
     archivesName.set("${mod.id}-common")
 }
