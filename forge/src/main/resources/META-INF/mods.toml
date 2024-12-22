@@ -1,28 +1,16 @@
 modLoader = "javafml"
-loaderVersion = "[54,)"
+loaderVersion = "*"
 #issueTrackerURL = ""
 license = "GPL-3.0"
 
 [[mods]]
-modId = "disablechristmaschests"
+modId = "${id}"
 version = "${version}"
-displayName = "Disable Christmas Chests"
+displayName = "${name}"
 authors = "Meza"
 description = '''
 Turn off the Christmas chests for good.
 '''
-logoFile = "assets/disablechristmaschests/nochest.png"
+logoFile = "assets/${id}/nochest.png"
+logoBlur = false
 
-[[dependencies.disablechristmaschests]]
-modId = "forge"
-mandatory = true
-versionRange = "[54.0.7,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.disablechristmaschests]]
-modId = "minecraft"
-mandatory = true
-versionRange = "[1.21.4,)"
-ordering = "NONE"
-side = "BOTH"
