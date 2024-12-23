@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "${name}"
 authors = "Meza"
 description = '''
-Turn off the Christmas chests for good.
+${description}
 '''
 logoFile = "assets/${id}/nochest.png"
 logoBlur = false

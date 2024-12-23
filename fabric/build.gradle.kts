@@ -48,7 +48,7 @@ dependencies {
 
 loom {
 
-    accessWidenerPath = rootProject.file("src/main/resources/disablechristmaschests.accesswidener")
+    accessWidenerPath = rootProject.file("src/main/resources/${mod.id}.accesswidener")
 
     decompilers {
         get("vineflower").apply { // Adds names to lambdas - useful for mixins
@@ -90,6 +90,7 @@ tasks.processResources {
     properties(listOf("fabric.mod.json"),
         "id" to mod.id,
         "name" to mod.name,
+        "description" to mod.description,
         "version" to mod.version,
         "minecraftVersion" to minecraftVersion
     )
@@ -104,6 +105,6 @@ tasks.register<Copy>("buildAndCollect") {
     group = "versioned"
     description = "Must run through 'chiseledBuild'"
     from(tasks.remapJar.get().archiveFile, tasks.remapSourcesJar.get().archiveFile)
-    into(rootProject.layout.buildDirectory.file("libs/$loader"))
+    into(rootProject.layout.buildDirectory.file("libs"))
     dependsOn("build")
 }

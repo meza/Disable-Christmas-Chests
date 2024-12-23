@@ -35,6 +35,10 @@ configurations {
     compileClasspath.get().extendsFrom(commonBundle)
     runtimeClasspath.get().extendsFrom(commonBundle)
     get("developmentForge").extendsFrom(commonBundle)
+
+    configureEach {
+        resolutionStrategy.force("net.sf.jopt-simple:jopt-simple:5.0.4")
+    }
 }
 
 repositories {
@@ -45,7 +49,6 @@ dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
     mappings("net.fabricmc:yarn:${common.mod.prop("yarn_mappings")}:v2")
     "forge"("net.minecraftforge:forge:${common.mod.prop("forge_version")}")
-    implementation("net.sf.jopt-simple:jopt-simple:5.0.4")
 
     commonBundle(project(common.path, "namedElements")) { isTransitive = false }
     shadowBundle(project(common.path, "transformProductionForge")) { isTransitive = false }
@@ -58,7 +61,7 @@ loom {
         }
     }
 
-    accessWidenerPath = rootProject.file("src/main/resources/disablechristmaschests.accesswidener")
+    accessWidenerPath = rootProject.file("src/main/resources/${mod.id}.accesswidener")
 
     forge.convertAccessWideners = true
     forge.mixinConfigs(
@@ -97,9 +100,10 @@ tasks.shadowJar {
 }
 
 tasks.processResources {
-    properties(listOf("META-INF/mods.toml"),
+    properties(listOf("META-INF/mods.toml", "pack.mcmeta"),
         "id" to mod.id,
         "name" to mod.name,
+        "description" to mod.description,
         "version" to mod.version,
         "minecraftVersion" to minecraftVersion
     )
@@ -114,6 +118,6 @@ tasks.register<Copy>("buildAndCollect") {
     group = "versioned"
     description = "Must run through 'chiseledBuild'"
     from(tasks.remapJar.get().archiveFile, tasks.remapSourcesJar.get().archiveFile)
-    into(rootProject.layout.buildDirectory.file("libs/$loader"))
+    into(rootProject.layout.buildDirectory.file("libs"))
     dependsOn("build")
 }

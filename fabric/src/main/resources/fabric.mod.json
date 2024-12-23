@@ -3,15 +3,16 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${name}",
-  "description": "Turn off the Christmas chests for good.",
+  "description": "${description}",
   "authors": [
     "meza"
   ],
   "contact": {
     "homepage": "https://github.com/meza/Disable-Christmas-Chests",
-    "sources": "https://github.com/meza/Disable-Christmas-Chests"
+    "sources": "https://github.com/meza/Disable-Christmas-Chests",
+    "discord": "https://discord.gg/dvg3tcQCPW"
   },
-  "license": "Insert License Here",
+  "license": "GPL-3.0",
   "icon": "assets/${id}/nochest.png",
   "environment": "*",
   "entrypoints": {
@@ -23,7 +24,8 @@
     "${id}-client.mixins.json"
   ],
   "depends": {
-    "fabric": "*",
+    "fabricloader": ">=0.16",
+    "fabric-api": "*",
     "minecraft": ">=${minecraftVersion}"
   }
 }

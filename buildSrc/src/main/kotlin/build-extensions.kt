@@ -25,6 +25,7 @@ fun ProcessResources.properties(files: Iterable<String>, vararg properties: Pair
 value class ModData(private val project: Project) {
     val id: String get() = requireNotNull(project.prop("mod.id")) { "Missing 'mod.id'" }
     val name: String get() = requireNotNull(project.prop("mod.name")) { "Missing 'mod.name'" }
+    val description: String get() = requireNotNull(project.prop("mod.description")) { "Missing 'mod.description'" }
     val version: String get() = requireNotNull(project.prop("mod.version")) { "Missing 'mod.version'" }
     val group: String get() = requireNotNull(project.prop("mod.group")) { "Missing 'mod.group'" }
     fun prop(key: String) = requireNotNull(project.prop(key)) { "Missing '$key'" }
