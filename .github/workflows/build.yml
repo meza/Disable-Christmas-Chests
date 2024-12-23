@@ -68,8 +68,11 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
 
+      - name: "🧪 Run Dev Build"
+        if: ${{ steps.get-next-version.outputs.new-release-published != 'true' }}
+        run: ./gradlew build -x test
+
       - name: "🕵️‍♂️ Collect jars"
-        if: ${{ steps.get-next-version.outputs.new-release-published == 'true' }}
         uses: actions/upload-artifact@v3
         with:
           name: Artifacts
