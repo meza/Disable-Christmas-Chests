@@ -14,3 +14,9 @@ ${description}
 logoFile = "assets/${id}/nochest.png"
 logoBlur = false
 
+[[dependencies.${id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraftVersion},)"
+ordering = "NONE"
+side = "BOTH"
