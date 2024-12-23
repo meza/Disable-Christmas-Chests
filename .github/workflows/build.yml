@@ -77,7 +77,7 @@ jobs:
         with:
           name: Artifacts
           path: |
-            libs/*.jar
+            build/libs/*.jar
 
       - uses: Kir-Antipov/mc-publish@v3.3
         name: "🚀 Publish: Fabric"
