@@ -21,7 +21,7 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidOpenable>
     @Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/block/entity/BlockEntity;FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;II)V", cancellable = true)
     private void render(T entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, CallbackInfo ci) {
         if (!DisableChristmasChestsMod.allowChristmas) {
-            this.christmas = true;
+            this.christmas = false;
         } else {
             this.christmas = ChestBlockEntityRenderer.isAroundChristmas();
         }
