@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "*"
-#issueTrackerURL = ""
+issueTrackerURL = "https://github.com/meza/Disable-Christmas-Chests/issues"
 license = "GPL-3.0"
 
 [[mods]]
