@@ -43,6 +43,16 @@
       {
         "prepareCmd": "./scripts/release.sh \"${nextRelease.version}\""
       }
+    ],
+    [
+      "semantic-release-discord-bot",
+      {
+        "notifications": [
+          {
+            "branch": "main"
+          }
+        ]
+      }
     ]
   ]
 }
