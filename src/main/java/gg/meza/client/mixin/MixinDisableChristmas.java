@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Calendar;
+
 @Mixin(ChestBlockEntityRenderer.class)
 public abstract class MixinDisableChristmas<T extends BlockEntity & LidOpenable> {
 
@@ -22,9 +24,22 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidOpenable>
     private void render(T entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, CallbackInfo ci) {
         if (!DisableChristmasChestsMod.allowChristmas) {
             this.christmas = false;
-        } else {
-            this.christmas = ChestBlockEntityRenderer.isAroundChristmas();
         }
+        //? if < 1.21.1 {
+        else {
+            Calendar calendar = Calendar.getInstance();
+            if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
+                this.christmas = true;
+            } else {
+                this.christmas = false;
+            }
+        }
+        //? }
+        //? if >= 1.21.4 {
+        /*else {
+            this.christmas = ChestBlockEntityRenderer.isAroundChristmas();
+        }*/
+        //? }
     }
 
 }
