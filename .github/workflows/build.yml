@@ -50,22 +50,23 @@ jobs:
       - name: "🔓 Adjust the release permissions"
         run: chmod a+x ./scripts/release.sh && chmod +x ./gradlew
 
-      - uses: meza/action-do-semantic-release@main
-        name: 🔬 Release Probe
+      - name: "🧵 Install semantic release"
+        run: npm i --location=global semantic-release conventional-changelog-conventionalcommits @semantic-release/github @semantic-release/changelog @semantic-release/exec semantic-release-export-data semantic-release-discord-bot
+
+      - name: "🔢 Determine version"
+        run: npx semantic-release --dry-run
         id: get-next-version
-        with:
+        env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          DryRun: 'true'
 
       - name: "ℹ️ Needs Release?"
         run: echo "Needs release published? ${{ steps.get-next-version.outputs.new-release-published == 'true' }}"
 
-      - uses: meza/action-do-semantic-release@main
+      - name: "🏗️ Build & Release to GitHub"
         if: ${{ steps.get-next-version.outputs.new-release-published == 'true' }}
-        name: ✅ Release to GitHub
-        with:
+        env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          DryRun: 'false'
+        run: npx semantic-release
 
       - name: "🧪 Run Dev Build"
         if: ${{ steps.get-next-version.outputs.new-release-published != 'true' }}
