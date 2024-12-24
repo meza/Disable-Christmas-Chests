@@ -65,6 +65,7 @@ tasks.register("configureMinecraft") {
             fov=90
             narrator:0
             soundCategory_music:0.0
+            darkMojangStudiosBackground:true
             """.trimIndent()
         )
     }

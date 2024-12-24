@@ -23,6 +23,8 @@ If you're adding support for a **newer** version of Minecraft, you need to updat
 The previous step created a new folder in the `versions` directory. Go to the folder with the new version and update the `gradle.properties`
 file with the version numbers you've gathered in the preparations step.
 
+If it failed to create said folder, you can create it manually.
+
 The block you copied from the FabricMC site should require no changes, paste as is.
 For the rest, please refer to the existing files in the other versions.
 
