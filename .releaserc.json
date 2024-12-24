@@ -47,6 +47,7 @@
     [
       "semantic-release-discord-bot",
       {
+        "packageName": "Disable-Christmas-Chests",
         "notifications": [
           {
             "branch": "main"
