@@ -22,6 +22,7 @@ dependencies {
 }
 
 loom {
+
     accessWidenerPath = rootProject.file("src/main/resources/disablechristmaschests.accesswidener")
 
     decompilers {
@@ -37,6 +38,15 @@ java {
         JavaVersion.VERSION_21 else JavaVersion.VERSION_17
     targetCompatibility = java
     sourceCompatibility = java
+}
+
+tasks.processResources {
+    val refmap = "refmap" to "${mod.id}-common-$minecraftVersion-refmap.json"
+    inputs.properties(refmap)
+
+    filesMatching("${mod.id}-client.mixins.json") {
+        expand(refmap)
+    }
 }
 
 

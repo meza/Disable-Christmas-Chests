@@ -14,9 +14,9 @@
   },
   "license": "GPL-3.0",
   "icon": "assets/${id}/nochest.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
-    "main": [
+    "client": [
       "gg.meza.fabric.DisableChristmasChestsModFabric"
     ]
   },
