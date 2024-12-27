@@ -14,7 +14,7 @@ permissions:
 
 env:
   TYPE: ${{ endsWith(github.ref_name, 'main') && 'release' || (endsWith(github.ref_name, 'beta') && 'beta' || 'dev') }}
-  DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -71,7 +71,6 @@ jobs:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           CURSEFORGE_ID: ${{ vars.CURSEFORGE_ID }}
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
           DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
         run: npx semantic-release
