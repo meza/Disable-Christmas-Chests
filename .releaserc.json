@@ -45,17 +45,43 @@
       }
     ],
     [
-      "semantic-release-discord-bot",
+      "semantic-release-discord",
       {
-        "packageName": "Disable-Christmas-Chests",
-        "notifications": [
-          {
-            "success": {
-              "path": "./discord-notification-template.md"
-            },
-            "branch": "main"
-          }
-        ]
+        "notifyOnSuccess": true,
+        "onSuccessTemplate": {
+          "username": "$package_name",
+          "content": ":rocket: $package_name $npm_package_version has been released!",
+          "embeds": [
+            {
+              "title": "What changed?",
+              "description": "$release_notes",
+              "url": "https://x.com",
+              "color": 7377919,
+              "footer": {
+                "text": "Curseforge might take a few hours to approve the file so if you want to download it immediately, use the Modrinth link."
+              }
+            }
+          ],
+          "components": [
+            {
+              "type": 1,
+              "components": [
+                {
+                  "type": 2,
+                  "style": 5,
+                  "label": "Download from Modrinth",
+                  "url": "https://modrinth.com/mod/disable-christmas-chests"
+                },
+                {
+                  "type": 2,
+                  "style": 5,
+                  "label": "Download from Curseforge",
+                  "url": "https://www.curseforge.com/minecraft/mc-mods/disablechristmaschests/"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   ]
