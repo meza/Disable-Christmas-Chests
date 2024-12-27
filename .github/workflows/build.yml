@@ -67,9 +67,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           DO_PUBLISH: steps.get-next-version.outputs.new-release-published
-          MODRINTH_ID: ${{ secrets.MODRINTH_ID }}
+          MODRINTH_ID: ${{ vars.MODRINTH_ID }}
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-          CURSEFORGE_ID: ${{ secrets.CURSEFORGE_ID }}
+          CURSEFORGE_ID: ${{ vars.CURSEFORGE_ID }}
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
         run: npx semantic-release
 
