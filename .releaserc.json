@@ -50,12 +50,12 @@
         "packageName": "Disable-Christmas-Chests",
         "notifications": [
           {
+            "success": {
+              "path": "./discord-notification-template.md"
+            },
             "branch": "main"
           }
-        ],
-        "success":  {
-          "path": "./discord-notification-template.md"
-        }
+        ]
       }
     ]
   ]

@@ -40,6 +40,7 @@ group = mod.group
 
 val isBeta = "next" in version.toString()
 
+
 base { archivesName.set("${mod.id}-${loader}") }
 
 repositories {
@@ -167,11 +168,8 @@ publishMods {
     modrinth {
         accessToken = providers.environmentVariable("MODRINTH_TOKEN").orElse("")
         projectId = providers.environmentVariable("MODRINTH_ID").orElse("0")
-        minecraftVersionRange {
-            start = stonecutter.current.version
-            end = "latest"
-            includeSnapshots = true
-        }
+        minecraftVersions.add(stonecutter.current.version)
+        announcementTitle = "Download ${mod.version}+${loader}-${minecraftVersion}from Modrinth"
         if (isFabric) requires("fabric-api")
     }
 
@@ -179,12 +177,10 @@ publishMods {
         projectSlug = providers.environmentVariable("CURSEFORGE_SLUG").orElse("disablechristmaschests")
         projectId = providers.environmentVariable("CURSEFORGE_ID").orElse("0")
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN").orElse("")
-        minecraftVersionRange {
-            start = stonecutter.current.version
-            end = "latest"
-        }
+        minecraftVersions.add(stonecutter.current.version)
         clientRequired = true
         serverRequired = false
+        announcementTitle = "Download ${mod.version}+${loader}-${minecraftVersion} from CurseForge"
         if (isFabric) requires("fabric-api")
     }
 
