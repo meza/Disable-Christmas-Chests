@@ -19,11 +19,11 @@ modId = "minecraft"
 mandatory = true
 versionRange = "[${minecraftVersion},)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"
 
 [[dependencies.${id}]]
 modId = "forge"
 mandatory = true
 versionRange = "*"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"

@@ -52,7 +52,10 @@
           {
             "branch": "main"
           }
-        ]
+        ],
+        "success":  {
+          "path": "./discord-notification-template.md"
+        }
       }
     ]
   ]

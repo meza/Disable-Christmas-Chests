@@ -17,7 +17,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "gg.meza.fabric.DisableChristmasChestsModFabric"
+      "gg.meza.DisableChristmasChestsMod"
     ]
   },
   "mixins": [

@@ -66,6 +66,11 @@ jobs:
         if: ${{ steps.get-next-version.outputs.new-release-published == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          DO_PUBLISH: steps.get-next-version.outputs.new-release-published
+          MODRINTH_ID: ${{ secrets.MODRINTH_ID }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          CURSEFORGE_ID: ${{ secrets.CURSEFORGE_ID }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
         run: npx semantic-release
 
       - name: "🧪 Run Dev Build"
@@ -79,37 +84,3 @@ jobs:
           path: |
             build/libs/*.jar
 
-      - uses: Kir-Antipov/mc-publish@v3.3
-        name: "🚀 Publish: Fabric"
-        if: ${{ steps.get-next-version.outputs.new-release-published == 'true' }}
-        with:
-          version-type: ${{ env.TYPE }}
-          name: DisableChristmasChests v${{ steps.get-next-version.outputs.new-release-version }} Fabric
-          version: ${{ steps.get-next-version.outputs.new-release-version }}
-          modrinth-id: ${{ vars.MODRINTH_ID }}
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ vars.CURSEFORGE_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          changelog-file: CHANGELOG.*
-          files: build/libs/*-fabric-*.jar
-          loaders: |
-            fabric
-            quilt
-          game-version-filter: releases
-
-      - uses: Kir-Antipov/mc-publish@v3.3
-        name: "🚀 Publish: Forge"
-        if: ${{ steps.get-next-version.outputs.new-release-published == 'true' }}
-        with:
-          version-type: ${{ env.TYPE }}
-          version: ${{ steps.get-next-version.outputs.new-release-version }}
-          name: DisableChristmasChests v${{ steps.get-next-version.outputs.new-release-version }} Forge
-          modrinth-id: ${{ vars.MODRINTH_ID }}
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ vars.CURSEFORGE_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          changelog-file: CHANGELOG.*
-          files: build/libs/*-forge-*.jar
-          loaders: |
-            forge
-          game-version-filter: releases
