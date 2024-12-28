@@ -46,12 +46,13 @@
     ],
     ["semantic-release-discord-notifier", {
       "embedJson": {
-        "content": "Disable Christmas Chests: ${nextRelease.version}",
+        "username": "Disable Christmas Chests",
+        "avatar_url": "https://github.com/meza/Disable-Christmas-Chests/blob/main/src/main/resources/assets/disablechristmaschests/nochest.png?raw=true",
+        "content": "# :rocket: ${nextRelease.version} just dropped",
         "embeds": [
           {
             "title": "What changed?",
             "description": "${nextRelease.notes}",
-            "url": "https://x.com",
             "color": 7377919,
             "footer": {
               "text": "Curseforge might take a few hours to approve the file so if you want to download it immediately, use the Modrinth link."
