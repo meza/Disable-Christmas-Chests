@@ -47,7 +47,6 @@
     ["semantic-release-discord-notifier", {
       "embedJson": {
         "content": "Disable Christmas Chests: ${nextRelease.version}",
-        "color": 5814783,
         "embeds": [
           {
             "title": "What changed?",
