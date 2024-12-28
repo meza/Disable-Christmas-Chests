@@ -165,24 +165,24 @@ publishMods {
     modLoaders.add(loader)
     displayName = "${mod.version} for ${loader.upperCaseFirst()} $minecraftVersion"
 
-    modrinth {
-        accessToken = providers.environmentVariable("MODRINTH_TOKEN").orElse("")
-        projectId = providers.environmentVariable("MODRINTH_ID").orElse("0")
-        minecraftVersions.add(stonecutter.current.version)
-        announcementTitle = "Download ${mod.version}+${loader}-${minecraftVersion}from Modrinth"
-        if (isFabric) requires("fabric-api")
-    }
-
-    curseforge {
-        projectSlug = providers.environmentVariable("CURSEFORGE_SLUG").orElse("disablechristmaschests")
-        projectId = providers.environmentVariable("CURSEFORGE_ID").orElse("0")
-        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN").orElse("")
-        minecraftVersions.add(stonecutter.current.version)
-        clientRequired = true
-        serverRequired = false
-        announcementTitle = "Download ${mod.version}+${loader}-${minecraftVersion} from CurseForge"
-        if (isFabric) requires("fabric-api")
-    }
+//    modrinth {
+//        accessToken = providers.environmentVariable("MODRINTH_TOKEN").orElse("")
+//        projectId = providers.environmentVariable("MODRINTH_ID").orElse("0")
+//        minecraftVersions.add(stonecutter.current.version)
+//        announcementTitle = "Download ${mod.version}+${loader}-${minecraftVersion}from Modrinth"
+//        if (isFabric) requires("fabric-api")
+//    }
+//
+//    curseforge {
+//        projectSlug = providers.environmentVariable("CURSEFORGE_SLUG").orElse("disablechristmaschests")
+//        projectId = providers.environmentVariable("CURSEFORGE_ID").orElse("0")
+//        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN").orElse("")
+//        minecraftVersions.add(stonecutter.current.version)
+//        clientRequired = true
+//        serverRequired = false
+//        announcementTitle = "Download ${mod.version}+${loader}-${minecraftVersion} from CurseForge"
+//        if (isFabric) requires("fabric-api")
+//    }
 
     dryRun = providers.environmentVariable("DO_PUBLISH").getOrElse("true").toBoolean()
 }
