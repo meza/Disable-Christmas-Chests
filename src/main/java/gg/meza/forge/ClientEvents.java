@@ -4,7 +4,11 @@
 import gg.meza.DisableChristmasChestsModConfig;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+/^? if < 1.21.9 {^/
+/^import net.minecraftforge.eventbus.api.SubscribeEvent;
+ ^//^?} else {^/
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
+/^?}^/
 import net.minecraftforge.fml.common.Mod;
 
 import static gg.meza.DisableChristmasChestsModConfig.LOGGER;
@@ -13,10 +17,18 @@ import static gg.meza.DisableChristmasChestsModConfig.LOGGER;
 public class ClientEvents {
 
     @SubscribeEvent
-    public static void endTick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && DisableChristmasChestsModConfig.openConfig.wasPressed()) {
+    /^? if >= 1.21.9 {^/
+    public static void endTick(TickEvent.ClientTickEvent.Post event) {
+        if (DisableChristmasChestsModConfig.openConfig.consumeClick()) {
             DisableChristmasChestsModConfig.allowChristmas = !DisableChristmasChestsModConfig.allowChristmas;
         }
     }
+    /^?} else {^/
+    /^public static void endTick(TickEvent.ClientTickEvent event) {
+        if (event.phase == TickEvent.Phase.END && DisableChristmasChestsModConfig.openConfig.consumeClick()) {
+            DisableChristmasChestsModConfig.allowChristmas = !DisableChristmasChestsModConfig.allowChristmas;
+        }
+    }
+    ^//^?}^/
 }
 *//*?}*/

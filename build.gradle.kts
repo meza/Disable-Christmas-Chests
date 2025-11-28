@@ -18,6 +18,12 @@ modSettings {
     )
 }
 
+loom {
+    log4jConfigs.apply {
+
+    }
+}
+
 repositories {
     mavenLocal()
     maven("https://maven.terraformersmc.com/")
