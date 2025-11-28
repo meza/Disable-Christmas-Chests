@@ -11,7 +11,7 @@ public class DisableChristmasChestsMod implements ClientModInitializer {
         KeyBindingHelper.registerKeyBinding(DisableChristmasChestsModConfig.openConfig);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (DisableChristmasChestsModConfig.openConfig.wasPressed()) {
+            if (DisableChristmasChestsModConfig.openConfig.consumeClick()) {
                 DisableChristmasChestsModConfig.allowChristmas = !DisableChristmasChestsModConfig.allowChristmas;
             }
         });

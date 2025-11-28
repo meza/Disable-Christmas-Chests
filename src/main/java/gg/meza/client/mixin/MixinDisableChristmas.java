@@ -1,11 +1,11 @@
 package gg.meza.client.mixin;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import gg.meza.DisableChristmasChestsModConfig;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.LidOpenable;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
-import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.ChestRenderer;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.LidBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -14,30 +14,32 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //? if < 1.21.4
 /*import java.util.Calendar;*/
 
-@Mixin(ChestBlockEntityRenderer.class)
-public abstract class MixinDisableChristmas<T extends BlockEntity & LidOpenable> {
+@Mixin(ChestRenderer.class)
+public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEntity> {
 
     @Shadow
-    private boolean christmas;
+    private boolean xmasTextures;
 
-    @Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/block/entity/BlockEntity;FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;II)V", cancellable = true)
-    private void render(T entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, CallbackInfo ci) {
+
+    @Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V", cancellable = true)
+    private void render(T blockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
         if (!DisableChristmasChestsModConfig.allowChristmas) {
-            this.christmas = false;
+            this.xmasTextures = false;
         }
         //? if < 1.21.4 {
         /*else {
             Calendar calendar = Calendar.getInstance();
             if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
-                this.christmas = true;
+                this.xmasTextures = true;
             } else {
-                this.christmas = false;
+                this.xmasTextures = false;
             }
         }
         *///?}
         //? if >= 1.21.4 {
         else {
-            this.christmas = ChestBlockEntityRenderer.isAroundChristmas();
+            this.xmasTextures = true;
+//            this.xmasTextures = ChestRenderer.xmasTextures();
         }
         //?}
     }
