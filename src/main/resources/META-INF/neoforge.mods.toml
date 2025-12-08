@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "*"
+issueTrackerURL = "https://github.com/meza/Disable-Christmas-Chests/issues"
+license = "GPL-3.0"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "${name}"
+authors = "Meza"
+description = '''
+${description}
+'''
+logoFile = "assets/${id}/nochest.png"
+logoBlur = false
+
+[[dependencies.${id}]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraftVersion},)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[mixins]]
+config = "${id}-client.mixins.json"

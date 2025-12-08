@@ -18,7 +18,7 @@ public class DisableChristmasChestsModConfig {
     public static final Logger LOGGER = LoggerFactory.getLogger("disable-christmas-chests");
     public static final String MOD_ID = "disablechristmaschests";
     /*? if >= 1.21.9 {*/
-    private static final KeyMapping.Category category = KeyMapping.Category.register(
+    public static final KeyMapping.Category category = KeyMapping.Category.register(
             //? > 1.21.10
             /*Identifier.fromNamespaceAndPath(MOD_ID, "keybinds")*/
             //? <= 1.21.10
