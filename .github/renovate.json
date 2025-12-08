@@ -1,4 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>stateshifters/renovate-common"]
+  "extends": ["github>stateshifters/renovate-common"],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "gg.meza.stonecraft"
+      ],
+      "stabilityDays": 0
+    }
+  ]
 }

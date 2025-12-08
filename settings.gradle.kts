@@ -9,12 +9,13 @@ pluginManagement {
         maven("https://maven.neoforged.net/releases/")
         maven("https://maven.kikugie.dev/releases")
         maven("https://maven.kikugie.dev/snapshots")
+        maven("https://maven.meza.gg/snapshots")
     }
 }
 
 plugins {
-    id("gg.meza.stonecraft") version "1.8.+"
-    id("dev.kikugie.stonecutter") version "0.7.11"
+    id("gg.meza.stonecraft") version "1.9.+"
+    id("dev.kikugie.stonecutter") version "0.8+"
 }
 
 stonecutter {
