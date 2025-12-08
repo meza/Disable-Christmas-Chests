@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "⬇️ Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Cache Gradle dependencies
         id: cache-gradle-dependencies
@@ -44,7 +44,7 @@ jobs:
           distribution: 'temurin'
 
       - name: "🔃 Use Latest Node.js"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: latest
 
