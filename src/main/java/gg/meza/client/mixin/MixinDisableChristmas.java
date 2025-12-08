@@ -4,6 +4,8 @@ package gg.meza.client.mixin;
 /*import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 *//*?}*/
+import gg.meza.ChristmasMode;
+import gg.meza.DisableChristmasChestsMod;
 import gg.meza.DisableChristmasChestsModConfig;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -40,18 +42,27 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEnti
         }
         //? if < 1.21.4 {
         /*else {
-            Calendar calendar = Calendar.getInstance();
-            if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
+            if(DisableChristmasChestsMod.config.christmasMode.get().equals(ChristmasMode.TOGGLE)) {
                 this.xmasTextures = true;
             } else {
-                this.xmasTextures = false;
+                Calendar calendar = Calendar.getInstance();
+                if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
+                    this.xmasTextures = true;
+                } else {
+                    this.xmasTextures = false;
+                }
             }
         }
         *///?}
         //? if >= 1.21.4 {
         else {
-            this.xmasTextures = true;
-//            this.xmasTextures = ChestRenderer.xmasTextures();
+            if(DisableChristmasChestsMod.config.christmasMode.get().equals(ChristmasMode.TOGGLE)) {
+                this.xmasTextures = true;
+            }
+            else {
+                this.xmasTextures = ChestRenderer.xmasTextures();
+            }
+
         }
         //?}
     }

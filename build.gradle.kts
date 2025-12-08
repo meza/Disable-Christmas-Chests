@@ -13,9 +13,13 @@ modSettings {
 
     variableReplacements = mapOf(
         "schema" to "\$schema",
-        "cloth_version" to mod.prop("cloth_version", "*"),
         "modmenu_version" to mod.prop("modmenu_version", "*"),
     )
+}
+
+dependencies {
+    implementation(libs.configbuilder)
+    include(libs.configbuilder)
 }
 
 repositories {
@@ -23,4 +27,5 @@ repositories {
     maven("https://maven.terraformersmc.com/")
     maven("https://maven.shedaniel.me/")
     maven("https://maven.meza.gg/releases/")
+    maven("https://maven.maxhenkel.de/repository/public")
 }
