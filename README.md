@@ -1,20 +1,24 @@
-# Disable-Christmas-Chests
+# Disable Christmas Chests
 
-A **client side** mod to disable the Christmas chests.
+Client-side Fabric and NeoForge mod that prevents Mojang's Christmas chest textures from replacing the normal and trapped chest textures (Dec 24–26). Safe to leave installed all year; outside the holiday window nothing changes.
 
-**_The mod does NOTHING when the date is not between the 24th and 26th of December (inclusive)_**
+## What it does
+- Keeps all chest variants to their regular texture during the seasonal event.
+- Client-only; servers do not need the mod.
+- Default keybind `G` lets you flip the festive textures on/off at runtime.
 
-You can have the mod installed outside of the festive period, it will not affect your game at all. I do recommend unbinding the hotkey for it though.
+## Configuration (new)
+A config file is created on first launch at `config/disable_christmas_chests.properties`.
 
-If you do want to see how your world would look like with the chests on, the default keybind is `G` _(for Grinch)._ You can modify the button in the keybind settings.
+- `christmasMode=DISABLE` (default): `G` disables the Christmas textures while the event is active (Dec 24–26). Outside that window there are no seasonal textures to suppress.
+- `christmasMode=TOGGLE`: `G` becomes a year-round toggle so you can enable the Christmas look whenever you want—handy for content creators or if you like the festive vibe in July.
 
-### Missing a version?
+You can rebind the hotkey in the controls menu if `G` conflicts with your setup.
 
-Go to the [issue tracker](https://github.com/meza/Disable-Christmas-Chests/issues) and ask for a specific Minecraft version. I'm happy to make it.
+## Missing a version?
+Open an issue with the Minecraft version you need: [issue tracker](https://github.com/meza/Disable-Christmas-Chests/issues).
 
-### Why a mod?
+## Why a mod?
+When Minecraft applies the Christmas textures, trapped chests look identical to normal chests. This mod keeps the original textures so you can still tell them apart (and so resource packs that remove the Christmas textures remain meaningful).
 
-During the festive period, Minecraft replaces the trapped chest and normal chest textures to the exact same texture. This means that when the [Remove Christmas Chests Resource Pack](https://modrinth.com/resourcepack/remove-christmas-chests/) then overrides the Christmast textures, it gets applied to both chest variants making them indistinguishable from each other.
-
-
-## For contributing, please see [CONTRIBUTING.md](CONTRIBUTING.md)
+For contributing, please see [CONTRIBUTING.md](CONTRIBUTING.md).
