@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 /*? if fabric {*/
 
-import net.fabricmc.api.ClientModInitializer;
+/*import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
@@ -31,7 +31,7 @@ public class DisableChristmasChestsMod implements ClientModInitializer {
         return ConfigBuilder.builder(ModConfig::new).path(PATH).build();
     }
 }
-/*?}*/
+*//*?}*/
 
 /*? if forge {*/
 /*
@@ -48,25 +48,25 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 /*?}*/
 
 /*? if neoforge {*/
-/*import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-*//*?}*/
+/*?}*/
 
 /*? if forgeLike {*/
-/*@Mod(DisableChristmasChestsModConfig.MOD_ID)
+@Mod(DisableChristmasChestsModConfig.MOD_ID)
 public class DisableChristmasChestsMod {
 
     public static final Path PATH = Paths.get("config/disable_christmas_chests.properties");
     public static ModConfig config = getConfig();
 
     //? if forge
-    /^@Mod.EventBusSubscriber(modid = DisableChristmasChestsModConfig.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)^/
+    /*@Mod.EventBusSubscriber(modid = DisableChristmasChestsModConfig.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)*/
     //? if neoforge
-    /^@EventBusSubscriber(modid = DisableChristmasChestsModConfig.MOD_ID)^/
+    @EventBusSubscriber(modid = DisableChristmasChestsModConfig.MOD_ID)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
@@ -93,5 +93,5 @@ public class DisableChristmasChestsMod {
     }
 }
 
-*//*?}*/
+/*?}*/
 

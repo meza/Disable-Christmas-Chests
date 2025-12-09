@@ -5,10 +5,10 @@ package gg.meza;
 *//*?}*/
 
 /*? if > 1.21.10 {*/
-/*import net.minecraft.resources.Identifier;
-*//*?} else {*/
-import net.minecraft.resources.ResourceLocation;
-/*?}*/
+import net.minecraft.resources.Identifier;
+/*?} else {*/
+/*import net.minecraft.resources.ResourceLocation;
+*//*?}*/
 import net.minecraft.client.KeyMapping;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
@@ -20,9 +20,9 @@ public class DisableChristmasChestsModConfig {
     /*? if >= 1.21.9 {*/
     public static final KeyMapping.Category category = KeyMapping.Category.register(
             //? > 1.21.10
-            /*Identifier.fromNamespaceAndPath(MOD_ID, "keybinds")*/
+            Identifier.fromNamespaceAndPath(MOD_ID, "keybinds")
             //? <= 1.21.10
-            ResourceLocation.fromNamespaceAndPath(MOD_ID, "keybinds")
+            /*ResourceLocation.fromNamespaceAndPath(MOD_ID, "keybinds")*/
     );
     public static final KeyMapping openConfig = new KeyMapping("disablechristmaschests.config", GLFW.GLFW_KEY_G, category);
     /*?} else {*/
