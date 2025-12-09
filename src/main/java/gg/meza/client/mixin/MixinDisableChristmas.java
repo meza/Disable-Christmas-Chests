@@ -2,8 +2,10 @@ package gg.meza.client.mixin;
 
 import gg.meza.ChristmasMode;
 import gg.meza.DisableChristmasChestsMod;
-import gg.meza.DisableChristmasChestsModConfig;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.TrappedChestBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.LidBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /*? if >= 1.21.9 {*/
+import net.minecraft.world.level.block.CopperChestBlock;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.blockentity.state.ChestRenderState;
 import net.minecraft.world.phys.Vec3;
@@ -27,7 +30,7 @@ import java.util.Calendar;
 public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEntity> {
 
     @Shadow
-    private boolean xmasTextures;
+    public boolean xmasTextures;
 
     /*? if >= 1.21.9 {*/
     @Inject(at = @At("HEAD"), method = "extractRenderState(Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState;FLnet/minecraft/world/phys/Vec3;Lnet/minecraft/client/renderer/feature/ModelFeatureRenderer$CrumblingOverlay;)V", cancellable = true)
@@ -36,12 +39,13 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEnti
     /*@Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V", cancellable = true)
     private void render(T blockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
     *//*?}*/
-        this.xmasTextures = useChristmasTexture();
+
+        this.xmasTextures = disableChristmasChests$useChristmasTexture(blockEntity.getBlockState().getBlock());
     }
 
 
     @Unique
-    private boolean isChristmas() {
+    private boolean disableChristmasChests$isChristmas() {
         /*? if > 1.21.4 {*/
         return ChestRenderer.xmasTextures();
         /*?} else {*/
@@ -51,8 +55,22 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEnti
     }
 
     @Unique
-    private boolean useChristmasTexture() {
-        if (!DisableChristmasChestsModConfig.allowChristmas) {
+    private boolean disableChristmasChests$useChristmasTexture(Block block) {
+        if (!DisableChristmasChestsMod.config.christmasEnabled.get()) {
+            return false;
+        }
+
+        /*? if >= 1.21.9 {*/
+        if(block instanceof CopperChestBlock && !DisableChristmasChestsMod.config.showCopperChestPresents.get()) {
+            return false;
+        }
+        /*?}*/
+
+        if(block instanceof TrappedChestBlock && !DisableChristmasChestsMod.config.showTrappedChestPresents.get()) {
+            return false;
+        }
+
+        if(block instanceof ChestBlock && !DisableChristmasChestsMod.config.showRegularChestPresents.get()) {
             return false;
         }
 
@@ -60,7 +78,7 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEnti
             return true;
         }
 
-        return isChristmas();
+        return disableChristmasChests$isChristmas();
 
     }
 

@@ -22,11 +22,10 @@ public class DisableChristmasChestsModConfig {
             //? > 1.21.10
             Identifier.fromNamespaceAndPath(MOD_ID, "keybinds")
             //? <= 1.21.10
-            /*ResourceLocation.fromNamespaceAndPath(MOD_ID, "keybinds")*/
+            //ResourceLocation.fromNamespaceAndPath(MOD_ID, "keybinds")
     );
     public static final KeyMapping openConfig = new KeyMapping("disablechristmaschests.config", GLFW.GLFW_KEY_G, category);
     /*?} else {*/
     /*public static final KeyMapping openConfig = new KeyMapping("disablechristmaschests.config", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "disablechristmaschests.keybinds");
     *//*?}*/
-    public static boolean allowChristmas = false;
 }
