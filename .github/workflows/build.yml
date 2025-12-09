@@ -33,9 +33,6 @@ jobs:
             ~/fabric/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
 
-      - name: "🛂 Validate Gradle Wrapper"
-        uses: gradle/wrapper-validation-action@v3
-
       - name: "☕ Setup Jdk 21"
         uses: actions/setup-java@v5
         with:
@@ -52,7 +49,7 @@ jobs:
         run: chmod a+x ./scripts/release.sh && chmod +x ./gradlew
 
       - name: "🧵 Install semantic release"
-        run: npm i --location=global semantic-release semantic-release-discord-notifier conventional-changelog-conventionalcommits @semantic-release/github @semantic-release/changelog @semantic-release/exec semantic-release-export-data semantic-release-discord
+        run: npm i --location=global @meza/mezas-conventional-changelog semantic-release semantic-release-discord-notifier conventional-changelog-conventionalcommits @semantic-release/github @semantic-release/changelog @semantic-release/exec semantic-release-export-data semantic-release-discord
 
       - name: "🔢 Determine version"
         run: npx semantic-release --dry-run
