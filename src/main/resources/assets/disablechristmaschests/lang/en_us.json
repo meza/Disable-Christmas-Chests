@@ -1,4 +1,5 @@
 {
   "disablechristmaschests.config" : "Toggle Christmas",
-  "disablechristmaschests.keybinds" : "Disable Christmas Chests"
+  "disablechristmaschests.keybinds" : "Disable Christmas Chests",
+  "key.category.disablechristmaschests.keybinds" : "Disable Christmas Chests"
 }

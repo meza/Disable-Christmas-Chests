@@ -1,0 +1,5 @@
+[versions]
+configbuilder = "2.1.0"
+
+[libraries]
+configbuilder = { module = "de.maxhenkel.configbuilder:configbuilder", version.ref = "configbuilder" }
