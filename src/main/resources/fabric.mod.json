@@ -18,6 +18,9 @@
   "entrypoints": {
     "client": [
       "gg.meza.DisableChristmasChestsMod"
+    ],
+    "modmenu": [
+      "gg.meza.client.ModMenuIntegration"
     ]
   },
   "mixins": [

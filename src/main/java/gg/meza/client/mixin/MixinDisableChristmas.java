@@ -56,25 +56,25 @@ public abstract class MixinDisableChristmas<T extends BlockEntity & LidBlockEnti
 
     @Unique
     private boolean disableChristmasChests$useChristmasTexture(Block block) {
-        if (!DisableChristmasChestsMod.config.christmasEnabled.get()) {
+        if (!DisableChristmasChestsMod.config.christmasEnabled) {
             return false;
         }
 
         /*? if >= 1.21.9 {*/
-        if(block instanceof CopperChestBlock && !DisableChristmasChestsMod.config.showCopperChestPresents.get()) {
+        if(block instanceof CopperChestBlock && !DisableChristmasChestsMod.config.showCopperChestPresents) {
             return false;
         }
         /*?}*/
 
-        if(block instanceof TrappedChestBlock && !DisableChristmasChestsMod.config.showTrappedChestPresents.get()) {
+        if(block instanceof TrappedChestBlock && !DisableChristmasChestsMod.config.showTrappedChestPresents) {
             return false;
         }
 
-        if(block instanceof ChestBlock && !DisableChristmasChestsMod.config.showRegularChestPresents.get()) {
+        if(block instanceof ChestBlock && !DisableChristmasChestsMod.config.showRegularChestPresents) {
             return false;
         }
 
-        if (DisableChristmasChestsMod.config.christmasMode.get().equals(ChristmasMode.TOGGLE)) {
+        if (DisableChristmasChestsMod.config.christmasMode.equals(ChristmasMode.TOGGLE)) {
             return true;
         }
 

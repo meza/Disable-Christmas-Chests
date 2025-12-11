@@ -7,6 +7,7 @@ build/
 out/
 classes/
 *.log
+libs
 bob-memory.md
 # eclipse
 

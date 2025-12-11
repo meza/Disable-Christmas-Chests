@@ -20,6 +20,10 @@ modSettings {
 dependencies {
     implementation(libs.configbuilder)
     include(libs.configbuilder)
+    modApi("com.terraformersmc:modmenu:${mod.prop("modmenu_version")}")
+    modApi("me.shedaniel.cloth:cloth-config-${mod.loader}:${mod.prop("cloth_version")}") {
+        exclude(group = "net.fabricmc.fabric-api")
+    }
 }
 
 repositories {
