@@ -23,3 +23,6 @@ side = "CLIENT"
 
 [[mixins]]
 config = "${id}-client.mixins.json"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"

@@ -76,7 +76,7 @@ public class DisableChristmasChestsMod {
         @SubscribeEvent
         public static void keyBinds(RegisterKeyMappingsEvent event) {
             //? if >= 1.21.9
-            //event.registerCategory(DisableChristmasChestsModConfig.category);
+            event.registerCategory(DisableChristmasChestsModConfig.category);
             event.register(DisableChristmasChestsModConfig.openConfig);
         }
 
