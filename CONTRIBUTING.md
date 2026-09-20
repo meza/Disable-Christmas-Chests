@@ -100,7 +100,6 @@ At the worst, we need to completely rewrite sections of the mod to work with the
 Fortunately [Stonecutter][stonecutter] makes this process easier by allowing us to have multiple versions of Minecraft in the same codebase.
 The trade-off is that it's a bit more complex to read, but it's worth it in the long run.
 
-To add a new version of Minecraft to the project, follow the steps in the [Minecraft Version Update Runbook](/docs/minecraft-version-update-runbook.md).
 
 [issues]: https://github.com/meza/disable-christmas-chests/issues
 [stonecutter]: https://stonecutter.kikugie.dev/
