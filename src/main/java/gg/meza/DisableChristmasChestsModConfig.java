@@ -3,6 +3,8 @@ package gg.meza;
 /*? if < 1.21.9 {*/
 /*import com.mojang.blaze3d.platform.InputConstants;
 *//*?}*/
+//? >=26.3
+import com.mojang.blaze3d.platform.InputConstants;
 
 /*? if > 1.21.10 {*/
 import net.minecraft.resources.Identifier;
@@ -10,7 +12,8 @@ import net.minecraft.resources.Identifier;
 /*import net.minecraft.resources.ResourceLocation;
 *//*?}*/
 import net.minecraft.client.KeyMapping;
-import org.lwjgl.glfw.GLFW;
+//? <=26.2
+//import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,8 +27,17 @@ public class DisableChristmasChestsModConfig {
             //? <= 1.21.10
             //ResourceLocation.fromNamespaceAndPath(MOD_ID, "keybinds")
     );
-    public static final KeyMapping openConfig = new KeyMapping("disablechristmaschests.config", GLFW.GLFW_KEY_G, category);
-    /*?} else {*/
+    /*?}*/
+    /*? if >=26.3 {*/
+    public static final KeyMapping openConfig = new KeyMapping(
+            "disablechristmaschests.config",
+            InputConstants.Type.KEYBOARD,
+            InputConstants.KEY_G,
+            category
+    );
+    /*?} else if >=1.21.9 {*/
+    /*public static final KeyMapping openConfig = new KeyMapping("disablechristmaschests.config", GLFW.GLFW_KEY_G, category);
+    *//*?} else {*/
     /*public static final KeyMapping openConfig = new KeyMapping("disablechristmaschests.config", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "disablechristmaschests.keybinds");
     *//*?}*/
 }

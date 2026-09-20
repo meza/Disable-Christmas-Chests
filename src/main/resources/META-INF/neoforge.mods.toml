@@ -11,13 +11,13 @@ authors = "Meza"
 description = '''
 ${description}
 '''
-logoFile = "assets/${id}/nochest.png"
+${neoforgeIcon} = "assets/${id}/nochest.png"
 logoBlur = false
 
 [[dependencies.${id}]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[${minecraftVersion},)"
+versionRange = "[${minecraftCompatibilityVersion},)"
 ordering = "NONE"
 side = "CLIENT"
 

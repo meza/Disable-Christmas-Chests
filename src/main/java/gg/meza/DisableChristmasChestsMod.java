@@ -8,7 +8,10 @@ import java.nio.file.Paths;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+//? >=26.1
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+//? <=1.21.11
+//import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
 public class DisableChristmasChestsMod implements ClientModInitializer {
     public static final Path PATH = Paths.get("config/disable_christmas_chests.properties");
@@ -16,7 +19,10 @@ public class DisableChristmasChestsMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        KeyBindingHelper.registerKeyBinding(DisableChristmasChestsModConfig.openConfig);
+        //? >=26.1
+        KeyMappingHelper.registerKeyMapping(DisableChristmasChestsModConfig.openConfig);
+        //? <=1.21.11
+        //KeyBindingHelper.registerKeyBinding(DisableChristmasChestsModConfig.openConfig);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (DisableChristmasChestsModConfig.openConfig.consumeClick()) {
@@ -96,4 +102,3 @@ public class DisableChristmasChestsMod {
 }
 
 *//*?}*/
-

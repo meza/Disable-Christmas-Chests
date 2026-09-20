@@ -23,10 +23,10 @@
   "mixins": [
     "${id}-client.mixins.json"
   ],
-  "accessWidener": "${id}.accesswidener",
+  "accessWidener": "${accessWidener}",
   "depends": {
     "fabricloader": ">=0.16",
     "fabric-api": "*",
-    "minecraft": ">=${minecraftVersion}"
+    "minecraft": ">=${minecraftCompatibilityVersion}"
   }
 }
